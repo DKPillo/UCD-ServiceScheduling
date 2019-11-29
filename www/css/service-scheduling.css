@@ -66,6 +66,17 @@ ul.appointment-list li.appointment-list-entry:last-child {
   border: none;
 }
 
+ul.company-list {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+ul.company-list li.company-list-entry {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
 #main-content {
   margin-top: 65px;
   margin-bottom: 10px;
@@ -93,4 +104,59 @@ h4 {
   border-bottom: 1px solid #495057;
   font-style: italic;
   font-size: 20px;
+}
+
+.agent-list>.card {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.agent-list>.card h5.card-header {
+  font-size: 16px;
+  padding: 5px;
+  font-weight: bold;
+}
+.agent-list>.card .card-body {
+  padding: 5px;
+  text-align: center;
+}
+
+.availability.availability-all{
+  color: green;
+}
+.availability.availability-some{
+  color: orange;
+}
+.availability.availability-none{
+  color: red;
+}
+
+img.agent-image {
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.agent-toggle {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.list-group-item.list-group-item-action.bg-light.mt-5.cancel {
+  border: none;
+  font-style: italic;
+  color: orange;
+}
+
+.table.agent-table th,
+.table.agent-table td {
+  text-align: center;
+  padding: 0;
+}
+.table.agent-table tbody .fa-check {
+  color: green;
+  cursor: pointer;
+}
+.table.agent-table tbody .fa-times {
+  color: red;
+  cursor: not-allowed;
 }
