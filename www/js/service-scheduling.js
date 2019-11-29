@@ -44,7 +44,7 @@ $(document).ready(function() {
         }
     });
 
-    $(document).on('click', '.agent-list .card', function(e) {
+    $(document).on('click', '.agent-list.agent-list-a .card', function(e) {
         e.preventDefault();
         showPickModal();
     });

@@ -108,6 +108,8 @@ h4 {
 
 .agent-list>.card {
   margin-bottom: 10px;
+}
+.agent-list.agent-list-a>.card {
   cursor: pointer;
 }
 .agent-list>.card h5.card-header {
