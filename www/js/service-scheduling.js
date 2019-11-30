@@ -48,7 +48,6 @@ $(document).ready(function() {
         e.preventDefault();
         showPickModal();
     });
-
     $(document).on('click', '.table.agent-table tbody .fa-check', function(e) {
         e.preventDefault();
         datePicked();
@@ -59,7 +58,6 @@ $(document).ready(function() {
         $('input#company').val('');
         filterCompanyList()
     });
-
     $(document).on('click', '#clear-agent', function(e) {
         e.preventDefault();
         $('input#agent').val('');
@@ -71,7 +69,6 @@ $(document).ready(function() {
         var needle = $('input#company').val();
         filterCompanyList(needle);
     });
-
     $(document).on('input', 'input#agent', function(e) {
         e.preventDefault();
         var needle = $('input#agent').val();
@@ -80,6 +77,10 @@ $(document).ready(function() {
 
     $('.app-title').on('click', function (e) {
         navigate('home', false);
+    });
+
+    $(document).on('submit', 'form.form-no-submit', function (e) {
+        e.preventDefault();
     });
 
     navigate('home', false);
