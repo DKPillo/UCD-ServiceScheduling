@@ -78,6 +78,10 @@ $(document).ready(function() {
         filterAgentList(needle);
     });
 
+    $('.app-title').on('click', function (e) {
+        navigate('home', false);
+    });
+
     navigate('home', false);
 });
 

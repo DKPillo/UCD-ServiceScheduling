@@ -163,9 +163,27 @@ img.agent-image {
   cursor: not-allowed;
 }
 
+#pick-modal .modal-footer{
+  display: block;
+}
+.schedule-info .fa-check{
+  color: green;
+}
+.schedule-info .fa-times{
+  color: red;
+}
+.schedule-info.schedule-info-b{
+  text-align: right;
+}
+.schedule-info.schedule-info-a{
+  text-align: center;
+  font-size: 12px;
+}
+
 .app-title {
   font-size: 24px;
   font-weight: bold;
   font-style: italic;
   color: rebeccapurple;
+  cursor: pointer;
 }
