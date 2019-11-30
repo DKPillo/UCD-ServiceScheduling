@@ -54,6 +54,30 @@ $(document).ready(function() {
         datePicked();
     });
 
+    $(document).on('click', '#clear-company', function(e) {
+        e.preventDefault();
+        $('input#company').val('');
+        filterCompanyList()
+    });
+
+    $(document).on('click', '#clear-agent', function(e) {
+        e.preventDefault();
+        $('input#agent').val('');
+        filterAgentList();
+    });
+
+    $(document).on('input', 'input#company', function(e) {
+        e.preventDefault();
+        var needle = $('input#company').val();
+        filterCompanyList(needle);
+    });
+
+    $(document).on('input', 'input#agent', function(e) {
+        e.preventDefault();
+        var needle = $('input#agent').val();
+        filterAgentList(needle);
+    });
+
     navigate('home', false);
 });
 
@@ -111,4 +135,44 @@ function datePicked() {
     showInfoModal('Appointment Selected', 'You have selected an Appointment with <b>Max Power</b> on <b>Wednesday</b> at <b>08:00 AM</b>.<br/><br/>Max may contact you for more details.', true);
 }
 
+/**
+ * Filter the list of agents
+ * @param needle
+ */
+function filterAgentList(needle) {
+    var list = $('.agent-list');
+    list.find('.card').each(function(index) {
+        var agent = $(this);
+        if (!needle || needle === '') {
+            agent.removeClass('d-none');
+        } else {
+            var name = agent.find('.agent-name').html();
+            if (name.toLowerCase().indexOf(needle.toLowerCase()) > -1) {
+                agent.removeClass('d-none');
+            } else {
+                agent.addClass('d-none');
+            }
+        }
+    });
+}
 
+/**
+ * Filter the list of companies
+ * @param needle
+ */
+function filterCompanyList(needle) {
+    var list = $('.company-list');
+    list.find('.company-list-entry').each(function(index) {
+        var company = $(this);
+        if (!needle || needle === '') {
+            company.removeClass('d-none');
+        } else {
+            var name = company.html();
+            if (name.toLowerCase().indexOf(needle.toLowerCase()) > -1) {
+                company.removeClass('d-none');
+            } else {
+                company.addClass('d-none');
+            }
+        }
+    });
+}

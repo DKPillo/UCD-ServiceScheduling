@@ -2,9 +2,12 @@
     <h6 class="mt-2">Schedule Meeting</h6>
     <h3 class="mt-2">All Insurance</h3>
     <form class="form">
-        <div class="form-group">
+        <div class="input-group">
             <label for="agent" class="d-none">Search agent</label>
             <input type="text" class="form-control" id="agent" name="agent" placeholder="Search agent" />
+            <div class="input-group-append">
+                <button id="clear-agent" class="btn btn-outline-secondary" type="button"><i class="fa fa-times"></i></button>
+            </div>
         </div>
     </form>
     <h6 class="mt-4">Available agents (A)</h6>
@@ -12,7 +15,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Herwig Arko
+                <span class="agent-name">Herwig Arko</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -22,7 +25,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Iris Grüter
+                <span class="agent-name">Iris Grüter</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -32,7 +35,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Jamal Zakaria
+                <span class="agent-name">Jamal Zakaria</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -42,7 +45,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Julia Eigenmann
+                <span class="agent-name">Julia Eigenmann</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -52,7 +55,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Julian Coenen
+                <span class="agent-name">Julian Coenen</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -62,7 +65,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Max Power
+                <span class="agent-name">Max Power</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -72,7 +75,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Salim Hermidas
+                <span class="agent-name">Salim Hermidas</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
@@ -82,7 +85,7 @@
         <div class="card">
             <h5 class="card-header">
                 <img class="agent-image" src="res/images/agent.jpg" alt="" />
-                Urs Zimmermann
+                <span class="agent-name">Urs Zimmermann</span>
                 <span class="agent-toggle float-right"><i class="fa fa-user"></i></span>
             </h5>
             <div class="card-body agent-info-small">
