@@ -97,13 +97,15 @@ function navigate(nextPage, closeNav) {
     var content = $('#main-content');
 
     nav.find('.active').removeClass('active');
-    content.html('');
     $.get(templateURL, function (data) {
-        content.html(data);
         nav.find('a[data-nav="'+nextPage+'"]').addClass('active');
         if (closeNav) {
             $("#wrapper").toggleClass("toggled");
         }
+        content.fadeOut({complete: function () {
+            content.html(data);
+            content.fadeIn();
+        }});
     });
 }
 
