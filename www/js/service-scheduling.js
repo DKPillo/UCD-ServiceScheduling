@@ -45,8 +45,9 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.agent-list.agent-list-a .card', function(e) {
+        var that = $(this);
         e.preventDefault();
-        showPickModal();
+        showPickModal(that.find('.agent-name').html());
     });
     $(document).on('click', '.table.agent-table tbody .fa-check', function(e) {
         e.preventDefault();
@@ -83,8 +84,13 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    initTest();
+
     navigate('home', false);
 });
+
+var testLog = [];
+var testPrefix = '';
 
 /**
  * Navigation Function
@@ -93,6 +99,8 @@ $(document).ready(function() {
  */
 function navigate(nextPage, closeNav) {
     var templateURL = 'templates/'+nextPage+'.html?t='+new Date().getTime();
+
+    logAction('navigate', nextPage);
 
     var nav = $('#side-nav');
     var content = $('#main-content');
@@ -106,6 +114,9 @@ function navigate(nextPage, closeNav) {
         content.fadeOut({complete: function () {
             content.html(data);
             content.fadeIn();
+            if (nextPage === 'results') {
+                printResults();
+            }
         }});
     });
 }
@@ -114,8 +125,11 @@ function navigate(nextPage, closeNav) {
  * Show Info Modal
  * @param title
  * @param message
+ * @param goHome
  */
 function showInfoModal(title, message, goHome) {
+    logAction('infoModal', title);
+
     var modal = $('#info-modal');
     modal.find('#info-modal-title').html(title);
     modal.find('#info-modal-message').html(message);
@@ -128,7 +142,8 @@ function showInfoModal(title, message, goHome) {
 /**
  * Show Pick Modal
  */
-function showPickModal() {
+function showPickModal(agent) {
+    logAction('pickModal', agent);
     var modal = $('#pick-modal');
     modal.modal('toggle');
 }
@@ -137,6 +152,7 @@ function showPickModal() {
  * Show Pick Success Modal
  */
 function datePicked() {
+    logAction('datePicked');
     var modal = $('#pick-modal');
     modal.modal('hide');
     showInfoModal('Appointment Selected', 'You have selected an Appointment with <b>Max Power</b> on <b>Wednesday</b> at <b>08:00 AM</b>.<br/><br/>Max may contact you for more details.', true);
@@ -147,6 +163,7 @@ function datePicked() {
  * @param needle
  */
 function filterAgentList(needle) {
+    logAction('filterAgent', needle);
     var list = $('.agent-list');
     list.find('.card').each(function(index) {
         var agent = $(this);
@@ -168,6 +185,7 @@ function filterAgentList(needle) {
  * @param needle
  */
 function filterCompanyList(needle) {
+    logAction('filterCompany', needle);
     var list = $('.company-list');
     list.find('.company-list-entry').each(function(index) {
         var company = $(this);
@@ -182,4 +200,42 @@ function filterCompanyList(needle) {
             }
         }
     });
+}
+
+/**
+ * Print Timestamps and Action List of current Test
+ */
+function printResults() {
+    var container = $('#result-container');
+    testLog.forEach(function (msg) {
+        container.append('<li>' + msg + '</li>');
+    });
+}
+
+/**
+ * Start Test
+ */
+function initTest() {
+    var hash = window.location.hash;
+    if (hash === '#test-a') {
+        testPrefix = 'Test A: ';
+    } else if (hash === '#test-b') {
+        testPrefix = 'Test B: ';
+    } else {
+        window.location.href = "index.html";
+    }
+}
+
+/**
+ * Log User Interaction
+ */
+function logAction(val1, val2) {
+    var time = new Date();
+    var timeF = formatted_date = time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+    var msg = testPrefix + val1;
+    if (val2) {
+        msg = msg + ' (' + val2 + ')'
+    }
+    msg = msg + ' ' + timeF;
+    testLog.push(msg);
 }

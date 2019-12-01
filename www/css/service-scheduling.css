@@ -143,6 +143,7 @@ img.agent-image {
   margin-right: 5px;
 }
 
+.list-group-item.list-group-item-action.bg-light.results,
 .list-group-item.list-group-item-action.bg-light.mt-5.cancel {
   border: none;
   font-style: italic;
