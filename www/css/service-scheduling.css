@@ -188,3 +188,10 @@ img.agent-image {
   color: rebeccapurple;
   cursor: pointer;
 }
+
+body.test-a .test-case.test-case-b {
+  display: none;
+}
+body.test-b .test-case.test-case-a {
+  display: none;
+}

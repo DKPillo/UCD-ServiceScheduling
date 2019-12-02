@@ -89,6 +89,8 @@ $(document).ready(function() {
     navigate('home', false);
 });
 
+var isTestA = false;
+var isTestB = false;
 var testLog = [];
 var testPrefix = '';
 
@@ -155,7 +157,11 @@ function datePicked() {
     logAction('datePicked');
     var modal = $('#pick-modal');
     modal.modal('hide');
-    showInfoModal('Appointment Selected', 'You have selected an Appointment with <b>Max Power</b> on <b>Wednesday</b> at <b>08:00 AM</b>.<br/><br/>Max may contact you for more details.', true);
+    if (isTestA) {
+        showInfoModal('Appointment Selected', 'You have selected an Appointment with <b>Max Power</b> on <b>Wednesday</b> at <b>08:00 AM</b>.<br/><br/>Max may contact you for more details.', true);
+    } else if (isTestB) {
+        showInfoModal('Appointment Selected', 'You have selected an Appointment with <b>Michael Bay</b> on <b>Wednesday</b> at <b>08:00 AM</b>.<br/><br/>Michael may contact you for more details.', true);
+    }
 }
 
 /**
@@ -217,10 +223,15 @@ function printResults() {
  */
 function initTest() {
     var hash = window.location.hash;
+    var body = $('body');
     if (hash === '#test-a') {
         testPrefix = 'Test A: ';
+        body.addClass('test-a');
+        isTestA = true;
     } else if (hash === '#test-b') {
         testPrefix = 'Test B: ';
+        body.addClass('test-b');
+        isTestB = true;
     } else {
         window.location.href = "index.html";
     }
